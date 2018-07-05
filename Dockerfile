@@ -6,6 +6,7 @@ ENV PATH /google-cloud-sdk/bin:$PATH
 RUN apk --no-cache add \
         curl \
         python \
+        py-pip \
         py-crcmod \
         bash \
         libc6-compat \
@@ -21,3 +22,5 @@ RUN apk --no-cache add \
     gcloud components install kubectl && \
     gcloud components install docker-credential-gcr --quiet && \
     docker-credential-gcr configure-docker
+
+RUN pip install jinja2
